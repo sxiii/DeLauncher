@@ -1,3 +1,4 @@
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -7,6 +8,7 @@ plugins {
 android {
     namespace = "org.example.delauncher"
     compileSdk = 35
+
     defaultConfig {
         applicationId = "org.example.delauncher"
         minSdk = 26
@@ -14,7 +16,19 @@ android {
         versionCode = 1
         versionName = "0.2.0"
     }
-    buildFeatures { compose = true }
+
+    buildFeatures {
+        compose = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+}
+
+kotlin {
+    jvmToolchain(21)
 }
 
 dependencies {
@@ -26,5 +40,6 @@ dependencies {
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+
     debugImplementation("androidx.compose.ui:ui-tooling")
 }
